@@ -64,7 +64,7 @@ const Home: NextPage = () => {
 
     if (signedPayloadReq.status === 400) {
       alert(
-        "Looks like you don't own a Moondogs NFT :( You don't qualify for the free mint."
+        "looks like you're not eligible for a free mint yet. If your address is not on vip list then you can try to mint at least 1 moondogs nft and get a airdrop by pressing the green claim button"
       );
       return;
     } else {
