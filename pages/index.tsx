@@ -64,7 +64,7 @@ const Home: NextPage = () => {
 
     if (signedPayloadReq.status === 400) {
       alert(
-        "looks like you're not eligible for a free mint yet. If your address is not on vip list then you can try to mint at least 1 moondogs nft and get a airdrop by pressing the green claim button"
+        "looks like you're not eligible for a free mint yet, If your address is not on vip list then you can try to mint at least 1 moondogs nft and get another moondogs for free by pressing the green claim button"
       );
       return;
     } else {
