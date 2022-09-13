@@ -88,6 +88,7 @@
 @media only screen and (max-width: 800px) {
 
   .hidden {
+    visibility: hidden;
     width: 0px;
     height: 0px;
     max-width: 0%;
