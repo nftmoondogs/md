@@ -1,8 +1,6 @@
 
-
-
 .container {
-  margin-top: 96px;
+  margin-top: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +22,7 @@
 
 .describe {
   max-width: 900px;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 1.5;
 }
 
@@ -78,11 +76,39 @@
   height: 600px;
 }
 
+
+
 .mintdapp {
   width: 600px;
   height: 600px;
   max-width: 100%;
 }
+
+
+@media only screen and (max-width: 800px) {
+
+  .hidden {
+    width: 0px;
+    height: 0px;
+    max-width: 0%;
+  }
+
+}
+
+
+@media only screen and (min-width: 800px) {
+
+  .smallonly {
+visibility: hidden;
+width: 0px;
+height: 0px;
+max-width: 0%;
+  }
+
+}
+
+
+
 
 .selectBoxTitle {
   font-size: 1.75rem;
@@ -151,6 +177,37 @@
   text-align: center;
   border-radius: 9999px;
 }
+
+
+
+.wlmint {
+  cursor: pointer;
+  display: inline-flex;
+  appearance: none;
+  align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 1.2;
+  font-weight: 600;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  height: 3rem;
+  min-width: 3rem;
+  font-size: 1rem;
+  background: #e5e5ea;
+  background-image: linear-gradient(to left, #ffffff 0%, #ffffff 101.52%);
+  color: rgb(0, 0, 0);
+  width: 180px;
+  text-align: center;
+  border-radius: 9999px;
+}
+
+
 
 
 .mainButton:hover {

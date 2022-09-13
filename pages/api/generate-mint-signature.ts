@@ -9,33 +9,33 @@ export default async function generateMintSignature(
   const { address } = JSON.parse(req.body);
 
   // Get the Early Access NFT Edition Drop contract
-  const etheriumSDK = new ThirdwebSDK("goerli");
+  const etheriumSDK = new ThirdwebSDK("rinkeby");
   const moondogsnfts = etheriumSDK.getNFTCollection(
-    "0xe0c1b0c3366a9dB3566D4b4216334055c21C0Cba"
+    "0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18"
   );
-  const totala = new ThirdwebSDK("goerli");
+  const totala = new ThirdwebSDK("rinkeby");
   const total = totala.getNFTCollection (
-    "0xe0c1b0c3366a9dB3566D4b4216334055c21C0Cba"
+    "0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18"
   );
 
   // Check to see if the wallet address has an early access NFT
-  const allowList = ["0x7dE5f242a6191cE1ecf3bD912F40dd7E67e0A7cF", "0x724532765476"]
+  const allowList = ["0x7dE5f242a6191cE1ecf3bD912F40dd7E67e0A7cF", "0x7dE5f242a6191cE1ecf3bD912F40dd7E67e0A7cF"]
   const balance = await moondogsnfts.balanceOf(address)
   const tl = await total.totalSupply()
-  const addressInAllowlist = allowList.includes(address) && balance.toNumber() == 1 || balance.toNumber() == 0 || tl.toNumber() < 32
-  const userHasToken = balance.toNumber() == 1 || tl.toNumber() < 34
+  const addressInAllowlist = allowList.includes(address) && tl.toNumber() < 1000 && balance.toNumber() == 0 || balance.toNumber() == 1
+  const userHasToken = balance.toNumber() == 1 && tl.toNumber() < 1000
  
 
 
 
 
   // Now use the SDK on Goerli to get the signature drop
-  const goerliSDK = ThirdwebSDK.fromPrivateKey(
+  const rinkebySDK = ThirdwebSDK.fromPrivateKey(
     process.env.PRIVATE_KEY as string,
-    "goerli"
+    "rinkeby"
   );
-  const signatureDrop = goerliSDK.getSignatureDrop(
-    "0xe0c1b0c3366a9dB3566D4b4216334055c21C0Cba"
+  const signatureDrop = rinkebySDK.getSignatureDrop(
+    "0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18"
   );
 
   // If the user has an early access NFT, generate a mint signature
@@ -49,7 +49,7 @@ export default async function generateMintSignature(
     res.status(200).json(mintSignature);
   } else {
     res.status(400).json({
-      message: "User does not have an early access NFT",
+      message: "User does not have a Moondogs NFT",
     });
   }
 }

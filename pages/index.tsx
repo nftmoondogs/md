@@ -1,7 +1,4 @@
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-
 import {
   useAddress,
   useMetamask,
@@ -23,7 +20,7 @@ const Home: NextPage = () => {
   const [, switchNetwork] = useNetwork();
 
   const signatureDrop = useSignatureDrop(
-    "0xe0c1b0c3366a9dB3566D4b4216334055c21C0Cba"
+    "0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18"
   );
 
   async function claim() {
@@ -33,13 +30,13 @@ const Home: NextPage = () => {
     }
 
     if (isMismatch) {
-      switchNetwork?.(ChainId.Goerli);
+      switchNetwork?.(ChainId.Rinkeby);
       return;
     }
 
     try {
       const tx = await signatureDrop?.claimTo(address, 1);
-      alert(`Succesfully minted NFT!`);
+      alert(`Succesfully minted Moondogs NFT!`);
     } catch (error: any) {
       alert(error?.message);
     }
@@ -52,7 +49,7 @@ const Home: NextPage = () => {
     }
 
     if (isMismatch) {
-      switchNetwork && switchNetwork(ChainId.Goerli);
+      switchNetwork && switchNetwork(ChainId.Rinkeby);
       return;
     }
 
@@ -67,7 +64,7 @@ const Home: NextPage = () => {
 
     if (signedPayloadReq.status === 400) {
       alert(
-        "Looks like you don't own an early access NFT :( You don't qualify for the free mint."
+        "Looks like you don't own a Moondogs NFT :( You don't qualify for the free mint."
       );
       return;
     } else {
@@ -79,7 +76,7 @@ const Home: NextPage = () => {
 
         const nft = await signatureDrop?.signature.mint(signedPayload);
 
-        alert(`Succesfully minted NFT!`);
+        alert(`Succesfully minted Moondogs NFT!`);
       } catch (error: any) {
         alert(error?.message);
       }
@@ -88,25 +85,16 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      {/* Top Section */}
-      <h1 className={`${styles.h1}`}>Moondogs Vip And Wl Minting</h1>
-
-      <p className={`${styles.describe} ${styles.colorr}`}>
-        WL Spots owners can mint max 5 moondogs for 0.0069 eth per NFT from the left.  <br className="sm:block hidden" /> </p>
-
-        <p className={styles.describe}>
-        While the Vip spots holders can mint max 1 moondogs for free from the vip section on the right  <br className="sm:block hidden" />  </p>
-
-        <p className={styles.describe}>
-        First 1000 minters can mint one NFT for free using the Claim Button. </p> 
-      
-
+     
       {address ? (
         <div className={styles.nftBoxGrid}>
           {/* Mint a new NFT */}
-          <div>
-<iframe src="https://gateway.ipfscdn.io/ipfs/Qma5FgmS9s3hkQrURfG4XDnh5Dxp9Fx9ZjBYkPFUNdQwfi/signature-drop.html?contract=0xe0c1b0c3366a9dB3566D4b4216334055c21C0Cba&chainId=5" className={styles.mintdapp}></iframe>
+
+         
+          <div className={`${styles.hidden}`}>
+<iframe src="https://gateway.ipfscdn.io/ipfs/Qma5FgmS9s3hkQrURfG4XDnh5Dxp9Fx9ZjBYkPFUNdQwfi/signature-drop.html?contract=0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18&chainId=4" className={`${styles.mintdapp}`}></iframe>
 </div>
+
 
           <div
             className={styles.optionSelectBox}
@@ -124,7 +112,24 @@ const Home: NextPage = () => {
       > Mint</button>
 
 <p className="pt-96"> </p>
+
+<div className={styles.smallonly}>
+
+<h1 className={styles.h1}>WL Mint</h1>
+
+            <p className={styles.selectBoxDescription}>
+            0.0069 eth per mint max 5
+            </p>
+
+
+            <a href="https://gateway.ipfscdn.io/ipfs/Qma5FgmS9s3hkQrURfG4XDnh5Dxp9Fx9ZjBYkPFUNdQwfi/signature-drop.html?contract=0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18&chainId=4" target="_blank" rel="noreferrer"><button type="button" className={`${styles.wlmint} ${styles.spacerTop}`} 
+      > Mint </button></a>
+
+
+</div>
+
 <p className="pt-96"> </p>
+
 
 
 <h1 className={styles.h1}>Airdrop</h1>
@@ -137,7 +142,7 @@ const Home: NextPage = () => {
         className={`${styles.airdrop} ${styles.spacerTop}`} 
       > Claim </button>
 
-
+<p className="pb-10"> </p>
            
           </div>
 
@@ -157,7 +162,12 @@ const Home: NextPage = () => {
         </button>
       )
       }
+      <p className="pt-96"> </p>
+<p className="pt-96"> </p>
+<p className="pt-96"> </p>
+<p className="pt-96"> </p>
     </div>
+    
   );
 };
 
