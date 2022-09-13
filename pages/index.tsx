@@ -20,7 +20,7 @@ const Home: NextPage = () => {
   const [, switchNetwork] = useNetwork();
 
   const signatureDrop = useSignatureDrop(
-    "0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18"
+    "0x3987B9c21873AfAE5Cf587BA50C2407fe6a0f7ef"
   );
 
   async function claim() {
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
     }
 
     if (isMismatch) {
-      switchNetwork?.(ChainId.Rinkeby);
+      switchNetwork?.(ChainId.Mainnet);
       return;
     }
 
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
     }
 
     if (isMismatch) {
-      switchNetwork && switchNetwork(ChainId.Rinkeby);
+      switchNetwork && switchNetwork(ChainId.Mainnet);
       return;
     }
 
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
 
          
           <div className={`${styles.hidden}`}>
-<iframe src="https://gateway.ipfscdn.io/ipfs/Qma5FgmS9s3hkQrURfG4XDnh5Dxp9Fx9ZjBYkPFUNdQwfi/signature-drop.html?contract=0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18&chainId=4" className={`${styles.mintdapp}`}></iframe>
+<iframe src="https://gateway.ipfscdn.io/ipfs/Qma5FgmS9s3hkQrURfG4XDnh5Dxp9Fx9ZjBYkPFUNdQwfi/signature-drop.html?contract=0x3987B9c21873AfAE5Cf587BA50C2407fe6a0f7ef&chainId=1" className={`${styles.mintdapp}`}></iframe>
 </div>
 
 
@@ -122,7 +122,7 @@ const Home: NextPage = () => {
             </p>
 
 
-            <a href="https://gateway.ipfscdn.io/ipfs/Qma5FgmS9s3hkQrURfG4XDnh5Dxp9Fx9ZjBYkPFUNdQwfi/signature-drop.html?contract=0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18&chainId=4" target="_blank" rel="noreferrer"><button type="button" className={`${styles.wlmint} ${styles.spacerTop}`} 
+            <a href="https://gateway.ipfscdn.io/ipfs/Qma5FgmS9s3hkQrURfG4XDnh5Dxp9Fx9ZjBYkPFUNdQwfi/signature-drop.html?contract=0x3987B9c21873AfAE5Cf587BA50C2407fe6a0f7ef&chainId=1" target="_blank" rel="noreferrer"><button type="button" className={`${styles.wlmint} ${styles.spacerTop}`} 
       > Mint </button></a>
 
 

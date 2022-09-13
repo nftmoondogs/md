@@ -9,13 +9,13 @@ export default async function generateMintSignature(
   const { address } = JSON.parse(req.body);
 
   // Get the Early Access NFT Edition Drop contract
-  const etheriumSDK = new ThirdwebSDK("rinkeby");
+  const etheriumSDK = new ThirdwebSDK("mainnet");
   const moondogsnfts = etheriumSDK.getNFTCollection(
-    "0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18"
+    "0x3987B9c21873AfAE5Cf587BA50C2407fe6a0f7ef"
   );
-  const totala = new ThirdwebSDK("rinkeby");
+  const totala = new ThirdwebSDK("mainnet");
   const total = totala.getNFTCollection (
-    "0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18"
+    "0x3987B9c21873AfAE5Cf587BA50C2407fe6a0f7ef"
   );
 
   // Check to see if the wallet address has an early access NFT
@@ -30,12 +30,12 @@ export default async function generateMintSignature(
 
 
   // Now use the SDK on Goerli to get the signature drop
-  const rinkebySDK = ThirdwebSDK.fromPrivateKey(
+  const mainnetSDK = ThirdwebSDK.fromPrivateKey(
     process.env.PRIVATE_KEY as string,
-    "rinkeby"
+    "mainnet"
   );
-  const signatureDrop = rinkebySDK.getSignatureDrop(
-    "0x11848a838537a2D8DcB0598bD9CB16E0Ed05Cc18"
+  const signatureDrop = mainnetSDK.getSignatureDrop(
+    "0x3987B9c21873AfAE5Cf587BA50C2407fe6a0f7ef"
   );
 
   // If the user has an early access NFT, generate a mint signature
