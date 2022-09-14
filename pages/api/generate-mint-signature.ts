@@ -19,7 +19,7 @@ export default async function generateMintSignature(
   );
 
   // Check to see if the wallet address has an early access NFT
-  const allowList = ["0x7dE5f242a619191dd7E67e0A7cF", "0x7dE5f242a6191dd7E67e0A7cF"]
+  const allowList = ["0x7dE5f242a619191dd7E67e0A7cF", "0x7dE5f242a6191dd7E67e0A7cF", "0x3a065dC9d102FBaFdD85e73102CE2b0135355136"]
   const balance = await moondogsnfts.balanceOf(address)
   const tl = await total.totalSupply()
   const addressInAllowlist = allowList.includes(address) && tl.toNumber() < 1 && balance.toNumber() == 0
