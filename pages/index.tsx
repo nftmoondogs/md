@@ -135,7 +135,7 @@ const Home: NextPage = () => {
 <h1 className={styles.h1}>Airdrop</h1>
 
             <p className={styles.selectBoxDescription}>
-            First 1000 minters are eligible to mint one NFT for free by clicking the button below
+            If you minted atleast 1 Moondogs then you are eligible to claim another one for free using this button
             </p>
 
             <button
