@@ -23,7 +23,7 @@ export default async function generateMintSignature(
   const balance = await moondogsnfts.balanceOf(address)
   const tl = await total.totalSupply()
   const addressInAllowlist = allowList.includes(address) && balance.toNumber() == 0
-  const userHasToken = balance.toNumber() == 1 || balance.toNumber() == 5  
+  const userHasToken = balance.toNumber() == 1 || balance.toNumber() == 2 || balance.toNumber() == 3 || balance.toNumber() == 4 || balance.toNumber() == 5 
  
 
 
